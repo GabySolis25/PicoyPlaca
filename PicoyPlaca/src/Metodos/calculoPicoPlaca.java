@@ -37,9 +37,12 @@ public class calculoPicoPlaca {
 	
 	//devuelve un digito segun el dia de la semana (0-6)
 	public int obtenerDia(String fechai) throws ParseException{
-		Date fecha=new SimpleDateFormat("dd/mm/yyyy").parse(fechai);
-		int dia= fecha.getDay();
-		return dia;
+		Date fecha=new SimpleDateFormat("dd/MM/yyyy").parse(fechai);
+	      int numeroDia=0;
+	      Calendar cal= Calendar.getInstance();
+	      cal.setTime(fecha);
+	      numeroDia=cal.get(Calendar.DAY_OF_WEEK);
+	      return numeroDia;
 	}
 	
 	//verifica por dia y por numero de placa si el vehiculo puede circular.
@@ -47,27 +50,30 @@ public class calculoPicoPlaca {
 		String resp="Si";
 		int digito= Integer.parseInt(placa.substring((placa.length()-1), placa.length()));
 	      switch(dia) {
-	         case 0 :
+	         case 2 :
 	        	 if(digito==1||digito==2){
 	        		 resp="No";
 	        	 }
 	            break;
-	         case 1 :
+	         case 3 :
 	        	 if(digito==3||digito==4){
 	        		 resp="No";
-	        	 }
-		            break;
-	         case 2 :
-	        	 if(digito==5||digito==6){
-	        		 resp="No";
-	        	 }
-		            break;
-	         case 3 :
-	        	 if(digito==7||digito==8){
-	        		 resp="No";
+	        		 
 	        	 }
 		            break;
 	         case 4 :
+	        	 if(digito==5||digito==6){
+	        		 resp="No";
+	        		 
+	        	 }
+		            break;
+	         case 5 :
+	        	 if(digito==7||digito==8){
+	        		 
+	        		 resp="No";
+	        	 }
+		            break;
+	         case 6 :
 	        	 if(digito==9||digito==0){
 	        		 resp="No";
 	        	 }

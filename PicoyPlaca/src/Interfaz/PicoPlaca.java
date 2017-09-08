@@ -3,8 +3,6 @@ import Metodos.*;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.ParseException;
-
 import javax.swing.DropMode;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +24,7 @@ public class PicoPlaca {
 	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					PicoPlaca window = new PicoPlaca();
@@ -82,6 +81,7 @@ public class PicoPlaca {
 		
 		JButton btnCalcular = new JButton("Calcular");
 		btnCalcular.addActionListener(new ActionListener() {
+		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			String fechai= obtFecha();
 			String hora= obtHora();
